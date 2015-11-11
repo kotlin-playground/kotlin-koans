@@ -14,10 +14,8 @@ class _05_Nullable_Types {
         sendMessageToClient(client, message, object : Mailer {
             public override fun sendMessage(actualEmail: String, actualMessage: String) {
                 invoked = true
-                Assert.assertEquals("The message is not as expected:",
-                        message, actualMessage)
-                Assert.assertEquals("The email is not as expected:",
-                        email, actualEmail)
+                Assert.assertEquals("The message is not as expected:", message, actualMessage)
+                Assert.assertEquals("The email is not as expected:", email, actualEmail)
             }
         })
         Assert.assertEquals("The function 'sendMessage' should${if (shouldBeInvoked) "" else "n't"} be invoked",

@@ -1,5 +1,6 @@
 package i_introduction._3_Default_Arguments
 
+import syntax.qualifiedThis.labelsForExtensionFunctionLiterals
 import util.*
 
 fun todoTask3(): Nothing = TODO(
@@ -13,12 +14,23 @@ fun todoTask3(): Nothing = TODO(
     documentation = doc2(),
     references = { name: String -> JavaCode2().foo(name); foo(name) })
 
-fun foo(name: String): String = todoTask3()
+fun foo(name: String, number:Int = 0, toUpperCase:Boolean = false): String {
+        if(toUpperCase)
+            if(number ==  0)
+                return name.toUpperCase() + "42"
+            else
+                return name.toUpperCase() + number.toString()
+        else
+            if(number == 0)
+                return  name + "42"
+            else
+                return name + number.toString()
+}
 
 fun task3(): String {
-    todoTask3()
-//    return (foo("a") +
-//            foo("b", number = 1) +
-//            foo("c", toUpperCase = true) +
-//            foo(name = "d", number = 2, toUpperCase = true))
+    //todoTask3()
+    return (foo("a") +
+            foo("b", number = 1) +
+            foo("c", toUpperCase = true) +
+            foo(name = "d", number = 2, toUpperCase = true))
 }
