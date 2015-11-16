@@ -27,13 +27,18 @@ fun todoTask37(): Nothing = TODO(
         building it and returning it as a result.
     """
 )
+fun buildMap(build: MutableMap<Int,String>.() -> Unit): Map<Int, String> {
+    var map = HashMap<Int,String>()
+    map.build()
+    return map
+}
 
 fun task37(): Map<Int, String> {
-    todoTask37()
-//    return buildMap {
-//        put(0, "0")
-//        for (i in 1..10) {
-//            put(i, "$i")
-//        }
-//    }
+    //todoTask37()
+    return buildMap {
+        put(0, "0")
+        for (i in 1..10) {
+            put(i, "$i")
+        }
+    }
 }
